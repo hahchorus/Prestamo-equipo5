@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ targetNamespace="https://t4is.uv.mx/prestamo"
+ xmlns:tns="https://t4is.uv.mx/prestamo"
+ elementFormDefault="qualified">
+
+ <!--Realizar Prestamo-->
+ <xs:element name="GuardarPrestamoRequest">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="finicio" type="xs:string"/>
+    <xs:element name="ffin" type="xs:string"/>
+    <xs:element name="nomcliente" type="xs:string"/>
+    <xs:element name="titulolibro" type="xs:string"/>
+    <xs:element name="status" type="xs:string"/>
+    <xs:element name="responsable" type="xs:string"/>
+   </xs:sequence>
+  </xs:complexType>
+</xs:element>
+ <xs:element name="GuardarPrestamoResponse">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="respuesta" type="xs:string"/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+<!-- Buscar Status -->
+ <xs:element name="VerStatusRequest">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="finicio" type="xs:string"/>
+    <xs:element name="ffin" type="xs:string"/>
+    <xs:element name="nomcliente" type="xs:string"/>
+    <xs:element name="titulolibro" type="xs:string"/>
+    <xs:element name="status" type="xs:string"/>
+    <xs:element name="responsable" type="xs:string"/>
+   </xs:sequence>
+  </xs:complexType>
+</xs:element>
+ <xs:element name="VerStatusResponse">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="respuesta" type="xs:string"/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+ 
+
+</xs:schema> 
