@@ -8,8 +8,9 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import https.t4is_uv_mx.prestamo.GuardarPrestamoRequest;
 import https.t4is_uv_mx.prestamo.GuardarPrestamoResponse;
-import https.t4is_uv_mx.prestamo.VerStatusRequest;
-import https.t4is_uv_mx.prestamo.VerStatusResponse;
+import https.t4is_uv_mx.prestamo.MostrarPrestamoResponse;
+import https.t4is_uv_mx.prestamo.StatusPrestamoRequest;
+import https.t4is_uv_mx.prestamo.StatusPrestamoResponse;
 
 
 @Endpoint
@@ -20,7 +21,7 @@ public class PrestamoEndPoint {
 
     @PayloadRoot(localPart = "GuardarPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
     @ResponsePayload
-    public GuardarPrestamoResponse guardarLibro(@RequestPayload GuardarPrestamoRequest peticion) {  
+    public GuardarPrestamoResponse guardarPrestamo(@RequestPayload GuardarPrestamoRequest peticion) {  
         GuardarPrestamoResponse respuesta = new GuardarPrestamoResponse();
         
         Prestamo prestamo = new Prestamo();
@@ -32,31 +33,47 @@ public class PrestamoEndPoint {
         prestamo.setStatus(peticion.getStatus());
         prestamo.setResponsable(peticion.getResponsable());
         iprestamo.save(prestamo);
-        respuesta.setRespuesta("Hola" +peticion.getNomcliente() + "acaba de apartar el libre "+peticion.getTitulolibro() + " hasta "+peticion.getFfin());
+        respuesta.setRespuesta("Hola " +peticion.getNomcliente() + " acaba de apartar el libre "+peticion.getTitulolibro() + " hasta "+peticion.getFfin());
         return respuesta;  
     }
 
-    /*
-    @PayloadRoot(localPart = "VerStatusRequest" ,namespace = "https://t4is.uv.mx/prestamo")
+    @PayloadRoot(localPart = "MostrarPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
     @ResponsePayload
-    public VerStatusResponse verstatus(@RequestPayload VerStatusRequest peticion) {  
-        VerStatusResponse respuesta = new VerStatusResponse();
+    public MostrarPrestamoResponse mostrarprestamo() {
         
-        String id = Integer.toString(peticion.getId());
+        MostrarPrestamoResponse respuesta = new MostrarPrestamoResponse();
+        Iterable<Prestamo> lista = iprestamo.findAll();
+        
+        for (Prestamo o : lista) {
+            MostrarPrestamoResponse.Prestamo e = new MostrarPrestamoResponse.Prestamo();
+            e.setId(o.getId());
+            e.setFinicio(o.getFinicio());
+            e.setFfin(o.getFfin());
+            e.setNomcliente(o.getNomcliente());
+            e.setTitulolibro(o.getTitulolibro());
+            e.setStatus(o.getStatus());
+            e.setResponsable(o.getResponsable());
+            respuesta.getPrestamo().add(e);
+        }
 
-
-        Prestamo prestamo = new Prestamo();
-        
-        prestamo.setFfin(peticion.getFfin());
-        prestamo.setNomcliente(peticion.getNomcliente());
-        prestamo.setTitulolibro(peticion.getTitulolibro());
-        prestamo.setStatus(peticion.getStatus());
-        prestamo.setResponsable(peticion.getResponsable());
-        
-        respuesta.setRespuesta("Hola" +peticion.getNomcliente() + "acaba de apartar el libre "+peticion.getTitulolibro() + " hasta "+peticion.getFfin());
-        return respuesta;  
+        return respuesta;
     }
-    */
 
+    @PayloadRoot(localPart = "StatusPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
+    @ResponsePayload
+    public StatusPrestamoResponse statusprestamo (@RequestPayload StatusPrestamoRequest peticion){
+
+        StatusPrestamoResponse respuesta = new StatusPrestamoResponse();
+        String id = Integer.toString(peticion.getId());
+        Iterable<Prestamo> listaprestamos = iprestamo.findByIdAndTitulolibrpo(peticion.getId(), peticion.getTitulolibro());
+        for (Prestamo prestamo : listaprestamos) {
+            
+            StatusPrestamoResponse.Prestamo p = new StatusPrestamoResponse.Prestamo();
+            
+
+        }
+
+        return null;
+    }
 
 }
