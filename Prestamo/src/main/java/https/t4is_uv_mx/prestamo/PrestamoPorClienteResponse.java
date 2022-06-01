@@ -56,11 +56,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "prestamo"
 })
-@XmlRootElement(name = "MostrarPrestamoResponse")
-public class MostrarPrestamoResponse {
+@XmlRootElement(name = "PrestamoPorClienteResponse")
+public class PrestamoPorClienteResponse {
 
     @XmlElement(required = true)
-    protected List<MostrarPrestamoResponse.Prestamo> prestamo;
+    protected List<PrestamoPorClienteResponse.Prestamo> prestamo;
 
     /**
      * Gets the value of the prestamo property.
@@ -80,13 +80,13 @@ public class MostrarPrestamoResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MostrarPrestamoResponse.Prestamo }
+     * {@link PrestamoPorClienteResponse.Prestamo }
      * 
      * 
      */
-    public List<MostrarPrestamoResponse.Prestamo> getPrestamo() {
+    public List<PrestamoPorClienteResponse.Prestamo> getPrestamo() {
         if (prestamo == null) {
-            prestamo = new ArrayList<MostrarPrestamoResponse.Prestamo>();
+            prestamo = new ArrayList<PrestamoPorClienteResponse.Prestamo>();
         }
         return this.prestamo;
     }

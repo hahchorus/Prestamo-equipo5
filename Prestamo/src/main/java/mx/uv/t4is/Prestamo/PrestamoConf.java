@@ -13,7 +13,7 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class LibroConf {
+public class PrestamoConf {
     
     @Bean
     public XsdSchema prestamoSchema(){

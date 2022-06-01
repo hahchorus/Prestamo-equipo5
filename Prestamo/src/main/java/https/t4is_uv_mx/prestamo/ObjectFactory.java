@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.05.31 a las 06:07:17 PM CDT 
+// Generado el: 2022.05.31 a las 11:42:11 PM CDT 
 //
 
 
@@ -49,11 +49,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link StatusPrestamoResponse }
+     * Create an instance of {@link PrestamoPorClienteResponse }
      * 
      */
-    public StatusPrestamoResponse createStatusPrestamoResponse() {
-        return new StatusPrestamoResponse();
+    public PrestamoPorClienteResponse createPrestamoPorClienteResponse() {
+        return new PrestamoPorClienteResponse();
     }
 
     /**
@@ -73,6 +73,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RenovarPrestamoRequest }
+     * 
+     */
+    public RenovarPrestamoRequest createRenovarPrestamoRequest() {
+        return new RenovarPrestamoRequest();
+    }
+
+    /**
+     * Create an instance of {@link RenovarPrestamoResponse }
+     * 
+     */
+    public RenovarPrestamoResponse createRenovarPrestamoResponse() {
+        return new RenovarPrestamoResponse();
+    }
+
+    /**
      * Create an instance of {@link MostrarPrestamoResponse.Prestamo }
      * 
      */
@@ -89,11 +105,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link StatusPrestamoResponse.Prestamo }
+     * Create an instance of {@link StatusPrestamoResponse }
      * 
      */
-    public StatusPrestamoResponse.Prestamo createStatusPrestamoResponsePrestamo() {
-        return new StatusPrestamoResponse.Prestamo();
+    public StatusPrestamoResponse createStatusPrestamoResponse() {
+        return new StatusPrestamoResponse();
+    }
+
+    /**
+     * Create an instance of {@link PrestamoPorClienteRequest }
+     * 
+     */
+    public PrestamoPorClienteRequest createPrestamoPorClienteRequest() {
+        return new PrestamoPorClienteRequest();
+    }
+
+    /**
+     * Create an instance of {@link PrestamoPorClienteResponse.Prestamo }
+     * 
+     */
+    public PrestamoPorClienteResponse.Prestamo createPrestamoPorClienteResponsePrestamo() {
+        return new PrestamoPorClienteResponse.Prestamo();
     }
 
     /**

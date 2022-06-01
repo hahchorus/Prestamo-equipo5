@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="finicio" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="ffin" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="nomcliente" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
@@ -41,6 +42,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "id",
     "finicio",
     "ffin",
     "nomcliente",
@@ -48,9 +50,10 @@ import javax.xml.bind.annotation.XmlType;
     "status",
     "responsable"
 })
-@XmlRootElement(name = "GuardarPrestamoRequest")
-public class GuardarPrestamoRequest {
+@XmlRootElement(name = "RenovarPrestamoRequest")
+public class RenovarPrestamoRequest {
 
+    protected int id;
     @XmlElement(required = true)
     protected String finicio;
     @XmlElement(required = true)
@@ -63,6 +66,22 @@ public class GuardarPrestamoRequest {
     protected String status;
     @XmlElement(required = true)
     protected String responsable;
+
+    /**
+     * Obtiene el valor de la propiedad id.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Define el valor de la propiedad id.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad finicio.

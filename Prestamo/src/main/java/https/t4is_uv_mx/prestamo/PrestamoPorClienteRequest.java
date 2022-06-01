@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="respuesta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="nomCliente" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +37,54 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "respuesta"
+    "id",
+    "nomCliente"
 })
-@XmlRootElement(name = "StatusPrestamoResponse")
-public class StatusPrestamoResponse {
+@XmlRootElement(name = "PrestamoPorClienteRequest")
+public class PrestamoPorClienteRequest {
 
+    protected int id;
     @XmlElement(required = true)
-    protected String respuesta;
+    protected String nomCliente;
 
     /**
-     * Obtiene el valor de la propiedad respuesta.
+     * Obtiene el valor de la propiedad id.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Define el valor de la propiedad id.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nomCliente.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRespuesta() {
-        return respuesta;
+    public String getNomCliente() {
+        return nomCliente;
     }
 
     /**
-     * Define el valor de la propiedad respuesta.
+     * Define el valor de la propiedad nomCliente.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRespuesta(String value) {
-        this.respuesta = value;
+    public void setNomCliente(String value) {
+        this.nomCliente = value;
     }
 
 }
