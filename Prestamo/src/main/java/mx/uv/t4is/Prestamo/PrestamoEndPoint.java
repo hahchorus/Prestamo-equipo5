@@ -9,10 +9,12 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import https.t4is_uv_mx.prestamo.GuardarPrestamoRequest;
 import https.t4is_uv_mx.prestamo.GuardarPrestamoResponse;
 import https.t4is_uv_mx.prestamo.MostrarPrestamoResponse;
-import https.t4is_uv_mx.prestamo.PrestamoPorClienteRequest;
-import https.t4is_uv_mx.prestamo.PrestamoPorClienteResponse;
-import https.t4is_uv_mx.prestamo.StatusPrestamoRequest;
-import https.t4is_uv_mx.prestamo.StatusPrestamoResponse;
+//import https.t4is_uv_mx.prestamo.PrestamoPorClienteRequest;
+//import https.t4is_uv_mx.prestamo.PrestamoPorClienteResponse;
+import https.t4is_uv_mx.prestamo.RenovarPrestamoRequest;
+import https.t4is_uv_mx.prestamo.RenovarPrestamoResponse;
+//import https.t4is_uv_mx.prestamo.StatusPrestamoRequest;
+//import https.t4is_uv_mx.prestamo.StatusPrestamoResponse;
 
 
 @Endpoint
@@ -63,8 +65,29 @@ public class PrestamoEndPoint {
         return respuesta;
     }
 
+    //Renovar prestamo
+    @PayloadRoot(localPart = "RenovarPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
+    @ResponsePayload
+    public RenovarPrestamoResponse renovarprestamo (@RequestPayload RenovarPrestamoRequest peticion){
+        
+        RenovarPrestamoResponse respuesta = new RenovarPrestamoResponse();
+
+        Prestamo prestamo = new Prestamo();
+        prestamo.setId(peticion.getId());
+        prestamo.setFinicio(peticion.getFinicio());
+        prestamo.setFfin(peticion.getFfin());
+        prestamo.setNomcliente(peticion.getNomcliente());
+        prestamo.setTitulolibro(peticion.getTitulolibro());
+        prestamo.setStatus(peticion.getStatus());
+        prestamo.setResponsable(peticion.getResponsable());
+        iprestamo.save(prestamo);
+        respuesta.setRespuesta("Ha renovado el prestamo del libro " +peticion.getTitulolibro() + " hasta el "+peticion.getFfin());
+        
+        return respuesta;
+    }
+
     //Ver status del prestamo
-    @PayloadRoot(localPart = "StatusPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
+    /*@PayloadRoot(localPart = "StatusPrestamoRequest" ,namespace = "https://t4is.uv.mx/prestamo")
     @ResponsePayload
     public StatusPrestamoResponse statusprestamo (@RequestPayload StatusPrestamoRequest peticion){
 
@@ -81,12 +104,15 @@ public class PrestamoEndPoint {
         return null;
     }
 
+    //Buscar prestamo por cliente
     @PayloadRoot(localPart = "PrestamoPorClienteRequest", namespace = "https://t4is.uv.mx/prestamo")
     @ResponsePayload
     public PrestamoPorClienteResponse prestamocliente (@RequestPayload PrestamoPorClienteRequest peticion){
 
         return null;
     }
+    */
+    
 
 }
 
