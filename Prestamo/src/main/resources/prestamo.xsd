@@ -30,11 +30,11 @@
   <xs:complexType>
     <xs:sequence>
         <xs:element name="id" type="xs:int"/>
-        <xs:element name="finicio" type="xs:string"/>
+        <xs:element name="finicio" type="xs:string"/> 
         <xs:element name="ffin" type="xs:string"/>
-        <xs:element name="nomcliente" type="xs:string"/>
-        <xs:element name="titulolibro" type="xs:string"/>
-        <xs:element name="status" type="xs:string"/>
+        <xs:element name="nomcliente" type="xs:string"/> 
+        <xs:element name="titulolibro" type="xs:string"/> 
+        <xs:element name="status" type="xs:string"/> 
         <xs:element name="responsable" type="xs:string"/>
       </xs:sequence>
     </xs:complexType>
